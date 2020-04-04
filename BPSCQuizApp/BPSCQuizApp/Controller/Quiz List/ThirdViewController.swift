@@ -66,27 +66,24 @@ class ThirdViewController: UIViewController {
     
     @IBAction func submitButton(_ sender: UIButton) {
         let count: Int = confirmed.confirmedAnswer.count
-               
-               
-               
-               if confirmed.confirmedAnswer.count > 0 {
-                quiz.removeAll()
-               
-                   
-                   for answer in 0...count - 1 {
-//                 let q = Quiz(quizId: confirmed.confirmedQuizId[answer], quizQuestionBanks: [QuizQuestionBank(quizQuestionBankId: confirmed.confirmedQuizQuestionBankId[answer], question: "string", option1: "string", option2: "string", option3: "string", option4: "string", answer: confirmed.confirmedAnswer[answer], explanation: "string")])
-                    
-                    let q = QuizQuestionBank(quizQuestionBankId:confirmed.confirmedQuizQuestionBankId[answer], question: "", option1: "", option2: "", option3: "", option4: "", answer: confirmed.confirmedAnswer[answer], explanation: "")
-                    quiz.append(q)
-                       
-                   }
-                
-                allQuiz = Quiz(quizId: 4, quizQuestionBanks: quiz)
-                
-        }
-        print(allQuiz)
         
-       
+        
+        
+        if confirmed.confirmedAnswer.count > 0 {
+            quiz.removeAll()
+            
+            
+            for answer in 0...count - 1 {
+                
+                let q = QuizQuestionBank(quizQuestionBankId:confirmed.confirmedQuizQuestionBankId[answer], question: "", option1: "", option2: "", option3: "", option4: "", answer: confirmed.confirmedAnswer[answer], explanation: "")
+                quiz.append(q)
+                
+            }
+            
+            allQuiz = Quiz(quizId: self.quizId!, quizQuestionBanks: quiz)
+            
+        }
+        
         submitResult()
         
         submitView.isHidden = false
@@ -158,7 +155,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
     
     func selectedOption(option: String, quizQBID: Int) {
         
-        confirmed.confirmedQuizId.append(self.quizId!)
         confirmed.confirmedQuizQuestionBankId.append(quizQBID)
         confirmed.confirmedAnswer.append(option)
     }
@@ -180,9 +176,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
         
         let cell: detailsQuizTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! detailsQuizTableViewCell
         
-        //self.quizQuestionBankId = questionBanks[indexPath.row].quizQuestionBankId
-        //print(quizQuestionBankId)
-        
         DispatchQueue.main.async {
             
             cell.qsnLabel.text = self.questionBanks[indexPath.row].question
@@ -202,7 +195,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
                 cell.op1.setTitleColor(.red, for: .normal)
                 cell.userInteraction(isEnabled: false)
                 
-                //   cell.correctAnswerLabel.isHidden = false
             }
             if selectedStates.selectedRowsForButton2.contains(indexPath.row) {
                 
@@ -210,7 +202,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
                 cell.op2.setTitleColor(.red, for: .normal)
                 cell.userInteraction(isEnabled: false)
                 
-                //   cell.correctAnswerLabel.isHidden = false
             }
             
             if selectedStates.selectedRowsForButton3.contains(indexPath.row) {
@@ -218,7 +209,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
                 cell.op3.setTitleColor(.red, for: .normal)
                 cell.userInteraction(isEnabled: false)
                 
-                //   cell.correctAnswerLabel.isHidden = false
             }
             
             if selectedStates.selectedRowsForButton4.contains(indexPath.row) {
@@ -226,7 +216,6 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
                 cell.op4.setTitleColor(.red, for: .normal)
                 cell.userInteraction(isEnabled: false)
                 
-                //   cell.correctAnswerLabel.isHidden = false
             }
         }
         
@@ -270,58 +259,56 @@ extension ThirdViewController : UITableViewDataSource,UITableViewDelegate, Selec
     
     func submitResult() {
         
-       
-                
+        
+        
         guard let uploadData = try? JSONEncoder().encode(self.allQuiz) else {
-                    return
-                }
-        print(uploadData)
-                
-                
-                
-                let postUrl = UrlManager.baseURL() + "Quiz/AnswerQuiz"
-                let url = URL(string: postUrl)! //PUT Your URL
-                var request = URLRequest(url: url)
-                request.httpMethod = "POST"
-                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                request.setValue("Bearer \(String(describing: token))", forHTTPHeaderField: "Authorization")
-                
-                
-                
-                URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
-                    
-                    
-                    if error == nil {
-                        
-                        let responseModel = try! JSONDecoder().decode(AnswerAfterResponse.self, from: data!)
-                        
-                        print(responseModel)
-                        
-                        self.totalMarks = (responseModel.answerPayload?.totalMark) ?? 100
-                        self.obtainedMarks = (responseModel.answerPayload?.obtainedMark) ?? 0
-                        
-                        DispatchQueue.main.async {
-                            
-                            self.totalMarkLabel.text = String(self.totalMarks)
-                            self.markObtainLabel.text = String(self.obtainedMarks)
-                            
-                            if self.obtainedMarks > 0 {
-                                self.percentage = Double(self.totalMarks)/self.obtainedMarks
-                            }
-                            else {
-                                self.percentageLabel.text = "0 %"
-                            }
-                            
-                            if self.percentage > 0 {
-                                self.percentageLabel.text = "\(self.percentage * 100) %"
-                            }
-                            else {
-                                self.percentageLabel.text = "0 %"
-                            }
-                        }
-                    }
-                }.resume()
-           // }
+            return
         }
+        print(uploadData)
+        
+        
+        
+        let postUrl = UrlManager.baseURL() + "Quiz/AnswerQuiz"
+        let url = URL(string: postUrl)! //PUT Your URL
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(String(describing: token))", forHTTPHeaderField: "Authorization")
+        
+        
+        
+        URLSession.shared.uploadTask(with: request, from: uploadData) { data, response, error in
+            
+            
+            if error == nil {
+                
+                let responseModel = try! JSONDecoder().decode(AnswerAfterResponse.self, from: data!)
+                
+                print(responseModel)
+                
+                self.totalMarks = (responseModel.answerPayload?.totalMark) ?? 100
+                self.obtainedMarks = (responseModel.answerPayload?.obtainedMark) ?? 0
+                
+                DispatchQueue.main.async {
+                    
+                    self.totalMarkLabel.text = String(self.totalMarks)
+                    self.markObtainLabel.text = String(self.obtainedMarks)
+                    
+                    if self.obtainedMarks > 0 {
+                        self.percentage = Double(self.totalMarks)/self.obtainedMarks
+                    }
+                    else {
+                        self.percentageLabel.text = "0 %"
+                    }
+                    
+                    if self.percentage > 0 {
+                        self.percentageLabel.text = "\(self.percentage * 100) %"
+                    }
+                    else {
+                        self.percentageLabel.text = "0 %"
+                    }
+                }
+            }
+        }.resume()
     }
-
+}

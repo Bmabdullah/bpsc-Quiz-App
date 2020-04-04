@@ -12,9 +12,10 @@ class SignInViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     let tokenSave = UserDefaults.standard
+    let refreshTokenSave = UserDefaults.standard
     let usernameSave = UserDefaults.standard
     let passwordSave = UserDefaults.standard
-    var tt : String = ""
+
     var email = String()
     
     let baseURL = "http://103.192.157.61:85/api/"
@@ -27,6 +28,7 @@ class SignInViewController: UIViewController {
     
     var loginobj = [LoginBase]()
     var token: String = String()
+    var refreshToken: String = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,20 +49,20 @@ class SignInViewController: UIViewController {
     
     @IBAction func forgetPassword(_ sender: Any) {
         let ac = UIAlertController(title: "Enter Your Email ", message: nil, preferredStyle: .alert)
-               ac.addTextField()
-
-               let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
-                   let answer = ac.textFields![0]
-                   // do something interesting with "answer" here
-                   self.email = answer.text ?? ""
-                self.forgetPass()
-                   
-               }
-
-               ac.addAction(submitAction)
-
-               present(ac, animated: true)
-               
+        ac.addTextField()
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            let answer = ac.textFields![0]
+            // do something interesting with "answer" here
+            self.email = answer.text ?? ""
+            self.forgetPass()
+            
+        }
+        
+        ac.addAction(submitAction)
+        
+        present(ac, animated: true)
+        
         
     }
     
@@ -100,19 +102,25 @@ extension SignInViewController{
                     if responseModel.failedResponse?.error == nil && responseModel.successResonse?.token != nil {
                         print("this is valid login")
                         
-                        self.tt = responseModel.successResonse?.token ?? ""
-                        
                         self.defaults.set(true, forKey: "First Launch")
-                        self.tokenSave.set(self.tt, forKey: "saveToken")
+                        
+                        self.tokenSave.set(responseModel.successResonse?.token, forKey: "saveToken")
                         self.usernameSave.set(user, forKey: "saveUsername")
                         self.passwordSave.set(pass, forKey: "savePassword")
-                        TokenUrl.shared.token = self.tt
-                        print(self.tt)
+                        self.refreshTokenSave.set(responseModel.successResonse?.refreshToken, forKey: "refreshToken")
+                        
+                        //self.token = self.defaults.string(forKey: "saveToken")!
+                        
+                        TokenUrl.shared.token = self.defaults.string(forKey: "saveToken")!
+                        
+                        TokenUrl.shared.refreshToken = self.defaults.string(forKey: "refreshToken")!
+                        
+                        print(self.token)
                         
                         let vc = self.storyboard?.instantiateViewController(identifier: "TabController") as? TabController
                         self.navigationController?.pushViewController(vc!, animated: true)
                         
-                    }else if responseModel.failedResponse?.error != nil {
+                    } else if responseModel.failedResponse?.error != nil {
                         print(responseModel)
                         let alert = UIAlertController(title: "Something wrong!", message: "Check your Username and Password internet connection also", preferredStyle: .alert)
                         
@@ -145,26 +153,20 @@ extension SignInViewController{
         print(apiUrl)
         var param:[String:Any] = [:]
         param["email"] = email
-
+        
         print(param)
         postDatawithNSDictionary(urlString:apiUrl,parameters:param,baseURL: "") { (jsonDict) in
-        do {
-            
-//            let responseModel = try JSONDecoder().decode(ForgetPasswordBase.self, from: jsonDict )
-//
-//            print(responseModel.message)
-//            print(responseModel)
-            
-
-                    }
-            catch{
-
+            do {
+                
+                
+                
             }
-
+            catch{
+                print(error)
+            }
+            
         }
     }
-    
-
 }
 
 

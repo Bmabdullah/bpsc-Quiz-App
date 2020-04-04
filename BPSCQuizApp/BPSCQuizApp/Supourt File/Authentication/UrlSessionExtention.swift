@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-var t = TokenUrl()
+//var t = TokenUrl()
 let tokenSave = UserDefaults.standard
-var token = "\(TokenUrl.shared.token)"
-var userName = "\(TokenUrl.shared.username)"
-var password = "\(TokenUrl.shared.password)"
+var token = TokenUrl.shared.token
+var userName = TokenUrl.shared.username
+var password = TokenUrl.shared.password
 let homeView = HomeViewController()
  
 //var token:String = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE1ODQ4NTY1MDMsImV4cCI6MTU4NDg3NDUwMywiaWF0IjoxNTg0ODU2NTAzfQ.LuUYFOiichdwSF97xEJFhdzVm48LcPaW-_kgTXNeVzA"
@@ -28,9 +28,9 @@ func fetchDatawithNSDictionary(apitype: String, urlString: String, baseURL: Stri
     var request: URLRequest = URLRequest(url:url)
     //var request: URLRequest = URLRequest(url:url)
     print(token)
-    if token == ""{
+    if token == "" {
         print("token is null")
-    }else{
+    } else {
         request.setValue("Bearer \(String(describing: token))", forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
     }
@@ -50,14 +50,16 @@ func fetchDatawithNSDictionary(apitype: String, urlString: String, baseURL: Stri
                 
                 let apiUrl = "http://103.192.157.61:85/api/Authenticate/login"
                 var param:[String:Any] = [:]
+                
                 param["username"] = userName
                 param["password"] = password
                 
                 postDatawithNSDictionary(urlString: apiUrl, parameters: param, baseURL: "")
                 {(jsonDict) in
                     do {
+                        
                         let responseModel = try JSONDecoder().decode(LoginBase.self, from: jsonDict)
-                     token = responseModel.successResonse?.token ?? ""
+                        token = responseModel.successResonse?.token ?? ""
                         
                         print(token)
                         TokenUrl.shared.token = token

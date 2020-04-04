@@ -35,59 +35,53 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getDictionaryData()
+        getProfileData()
         getDictionaryDataforQuiz()
         tableView.delegate = self
         tableView.dataSource = self
         
-        getProfileImage()
+        getProfileImageForProfile()
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        getDictionaryData()
         
-        getProfileImage()
+        getProfileData()
+        getDictionaryDataforQuiz()
+        getProfileImageForProfile()
         
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        username = ""
-        address = ""
-        first = ""
-        last = ""
-        email = ""
-        phone = ""
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        getProfileData()
+        getDictionaryDataforQuiz()
+        getProfileImageForProfile()
     }
     
     
-    @IBAction func logOutButton(_ sender: Any) {
-        do {
-            
-            self.dismiss(animated: false, completion: nil)
-            TokenUrl.shared.token = ""
-            TokenUrl.shared.username = ""
-            TokenUrl.shared.password = ""
-            defaults.set(false, forKey: "First Launch")
-            
-            //not need 
-            defaults.set(false, forKey: "saveUsername")
-            defaults.set(false, forKey: "savePassword")
-            username = ""
-            address = ""
-            first = ""
-            last = ""
-            email = ""
-            phone = ""
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(identifier: "Signin")
-            self.navigationController?.pushViewController(vc, animated: false)
-            
-            print("Logged Out")
-            
-        }
+    @IBAction func logOutButton(_ sender: UIButton) {
+        
+        
+        self.dismiss(animated: false, completion: nil)
+        
+        TokenUrl.shared.token = String()
+        TokenUrl.shared.username = String()
+        TokenUrl.shared.password = String()
+        
+        defaults.removeObject(forKey: "saveUsername")
+        defaults.removeObject(forKey: "savePassword")
+        defaults.removeObject(forKey: "saveToken")
+        defaults.removeObject(forKey: "refreshToken")
+        defaults.set(false, forKey: "First Launch")
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Signin")
+        self.navigationController?.pushViewController(vc, animated: false)
+        
+        print("Logged Out")
     }
     
     
@@ -242,8 +236,9 @@ extension ProfileViewController: UITableViewDataSource,UITableViewDelegate{
     
 }
 
-extension ProfileViewController{
-    func getDictionaryData() {
+extension ProfileViewController {
+    
+    func getProfileData() {
         let apiUrl = "http://103.192.157.61:85/api/ApplicationUser/GetUserProfileByUserId"
         
         fetchDatawithNSDictionary(apitype: "GET", urlString: apiUrl, baseURL: "") { (jsonDict) in
@@ -268,14 +263,13 @@ extension ProfileViewController{
                 self.getImageString = responseModel.payload?.profilePicture ?? ""
                 
             }
-            catch{
+            catch {
                 
             }
             
         }
         
     }
-    
     
 }
 
@@ -290,14 +284,11 @@ extension ProfileViewController{
                 
                 let responseModel = try JSONDecoder().decode(QuizBase.self, from: jsonDict)
                 
-                
-                
-                
                 let temp:Int = responseModel.payload?.count ?? 0
                 
                 for response in 0...temp - 1 {
                     
-                    if responseModel.payload?[response].hasParticipatedInQuiz == true{
+                    if responseModel.payload?[response].hasParticipatedInQuiz == true {
                         for response in responseModel.payload!{
                             
                             self.objectpayload.append(response)
@@ -307,18 +298,6 @@ extension ProfileViewController{
                     }
                 }
                 
-                //
-                //                if(temp>0){
-                //
-                //                    for response in responseModel.payload!{
-                //
-                //                        self.objectpayload.append(response)
-                //
-                //                    }
-                //
-                //                }
-                
-                
                 
                 self.tableView.reloadData()
                 
@@ -326,12 +305,11 @@ extension ProfileViewController{
             catch{
                 
             }
-            
         }
     }
     
     
-    func getProfileImage() {
+    func getProfileImageForProfile() {
         
         let imageUrl = URL(string: getImageString)
         

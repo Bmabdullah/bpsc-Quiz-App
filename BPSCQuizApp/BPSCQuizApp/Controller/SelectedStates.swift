@@ -20,7 +20,7 @@ struct SelectedStates {
 
 struct Confirmed {
     
-    var confirmedQuizId = [Int]()
+    //var confirmedQuizId = [Int]()
     var confirmedQuizQuestionBankId = [Int]()
     var confirmedAnswer = [String]()
     

@@ -16,9 +16,6 @@ class QuizTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        contentView.frame = contentView.frame.offsetBy(dx: 20, dy: 20)
-        //qView.layer.cornerRadius = 16
        
     }
 
@@ -36,5 +33,4 @@ class QuizTableViewCell: UITableViewCell {
         contentView.layer.cornerRadius = 8
         
     }
-
 }

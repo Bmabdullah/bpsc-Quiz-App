@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if defaults.bool(forKey: "First Launch") == true  {
             
-            defaults.set(true, forKey: "First Launch")
+            //defaults.set(true, forKey: "First Launch")
             
              TokenUrl.shared.token = UserDefaults.standard.string(forKey: "saveToken") ?? ""
             TokenUrl.shared.username = UserDefaults.standard.string(forKey: "saveUsername") ?? ""

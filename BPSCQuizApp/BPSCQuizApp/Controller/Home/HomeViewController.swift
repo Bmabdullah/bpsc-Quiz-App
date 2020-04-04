@@ -22,7 +22,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getDictionaryData()
+        getDictionaryDataForHome()
         navigationController?.setNavigationBarHidden(true, animated: true)
 
         guard let tabBar = self.tabBarController?.tabBar else { return }
@@ -58,9 +58,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "PDFViewController") as! PDFViewController
         navigationController?.pushViewController(vc, animated: true)
         vc.urlString = objectpayload[indexPath.row].fileURL ?? ""
+        
         print(objectpayload[indexPath.row].fileURL ?? "")
         
     }
@@ -75,7 +77,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
 }
 extension HomeViewController{
-     func getDictionaryData() {
+     func getDictionaryDataForHome() {
            let apiUrl = "\(baseURL)PreviousQuestion/GetPreviousQuestionList"
            print(apiUrl)
            fetchDatawithNSDictionary(apitype: "GET", urlString: apiUrl, baseURL: "") { (jsonDict) in
@@ -98,10 +100,11 @@ extension HomeViewController{
                        
                     }
                 }
-                if self.objectpayload.count != nil {
+                
+                if self.objectpayload.count != 0 {
                 self.questionArchivetableView.reloadData()
                 
-                 }
+                }
             }
                 catch{
                     
