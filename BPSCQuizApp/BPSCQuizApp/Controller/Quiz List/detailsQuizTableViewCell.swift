@@ -10,11 +10,10 @@ import UIKit
 
 protocol SelectedOptionDelegate {
     
-    func selectedOption(option: IndexPath)
+    func selectedOption(option: String, quizQBID: Int)
 }
 
 var selectedStates = SelectedStates()
-
 
 class detailsQuizTableViewCell: UITableViewCell {
     
@@ -32,14 +31,8 @@ class detailsQuizTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
-        op1.isUserInteractionEnabled = true
-        op2.isUserInteractionEnabled = true
-        op3.isUserInteractionEnabled = true
-        op4.isUserInteractionEnabled = true
-        
-        
+        userInteraction(isEnabled: true)
     }
     
     
@@ -51,82 +44,70 @@ class detailsQuizTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        op1.isUserInteractionEnabled = true
-        op2.isUserInteractionEnabled = true
-        op3.isUserInteractionEnabled = true
-        op4.isUserInteractionEnabled = true
+        userInteraction(isEnabled: true)
         
+        op1.setTitleColor(.black, for: .normal)
+        op2.setTitleColor(.black, for: .normal)
+        op3.setTitleColor(.black, for: .normal)
+        op4.setTitleColor(.black, for: .normal)
         
     }
     
     @IBAction func button1Action(_ sender: UIButton) {
         
-        op1.isUserInteractionEnabled = false
-        op2.isUserInteractionEnabled = false
-        op3.isUserInteractionEnabled = false
-        op4.isUserInteractionEnabled = false
+        op1.setTitleColor(.red, for: .normal)
+        
+        userInteraction(isEnabled: false)
         
         let indexPath :NSIndexPath = (self.superview! as! UITableView).indexPath(for: self)! as NSIndexPath
-        delegate?.selectedOption(option: indexPath as IndexPath)
+                
+        delegate?.selectedOption(option: String(op1.titleLabel?.text ?? ""), quizQBID: quizQuestionBankId![indexPath.row])
         
-        selectedStates.rows.append(indexPath.row)
-        selectedStates.buttonTags.append(sender.tag)
-        
-        print(selectedStates.rows)
-        print(selectedStates.buttonTags)
+        selectedStates.selectedRowsForButton1.append(indexPath.row)
         
     }
     
     @IBAction func button2Action(_ sender: Any) {
-        op1.isUserInteractionEnabled = false
-        op2.isUserInteractionEnabled = false
-        op3.isUserInteractionEnabled = false
-        op4.isUserInteractionEnabled = false
         
+        userInteraction(isEnabled: false)
+        op2.setTitleColor(.red, for: .normal)
         
         let indexPath :NSIndexPath = (self.superview! as! UITableView).indexPath(for: self)! as NSIndexPath
-        delegate?.selectedOption(option: indexPath as IndexPath)
         
-        selectedStates.rows.append(indexPath.row)
-        selectedStates.buttonTags.append((sender as AnyObject).tag)
+        delegate?.selectedOption(option: String(op2.titleLabel?.text ?? ""), quizQBID: quizQuestionBankId![indexPath.row])
         
-        print(selectedStates.rows)
-        print(selectedStates.buttonTags)
+        selectedStates.selectedRowsForButton2.append(indexPath.row)
     }
     
     @IBAction func button3Action(_ sender: Any) {
-        op1.isUserInteractionEnabled = false
-        op2.isUserInteractionEnabled = false
-        op3.isUserInteractionEnabled = false
-        op4.isUserInteractionEnabled = false
         
+        userInteraction(isEnabled: false)
+        op3.setTitleColor(.red, for: .normal)
         
         let indexPath :NSIndexPath = (self.superview! as! UITableView).indexPath(for: self)! as NSIndexPath
-        delegate?.selectedOption(option: indexPath as IndexPath)
         
-        selectedStates.rows.append(indexPath.row)
-        selectedStates.buttonTags.append((sender as AnyObject).tag)
+        delegate?.selectedOption(option: String(op3.titleLabel?.text ?? ""), quizQBID: quizQuestionBankId![indexPath.row])
         
-        print(selectedStates.rows)
-        print(selectedStates.buttonTags)
+        selectedStates.selectedRowsForButton3.append(indexPath.row)
     }
     
     @IBAction func button4Action(_ sender: Any) {
-        op1.isUserInteractionEnabled = false
-        op2.isUserInteractionEnabled = false
-        op3.isUserInteractionEnabled = false
-        op4.isUserInteractionEnabled = false
         
+        userInteraction(isEnabled: false)
+        op4.setTitleColor(.red, for: .normal)
         
         let indexPath :NSIndexPath = (self.superview! as! UITableView).indexPath(for: self)! as NSIndexPath
-        delegate?.selectedOption(option: indexPath as IndexPath)
         
-        selectedStates.rows.append(indexPath.row)
-        selectedStates.buttonTags.append((sender as AnyObject).tag)
+        delegate?.selectedOption(option: String(op4.titleLabel?.text ?? ""), quizQBID: quizQuestionBankId![indexPath.row])
         
-        print(selectedStates.rows)
-        print(selectedStates.buttonTags)
+        selectedStates.selectedRowsForButton2.append(indexPath.row)
     }
     
-    
+     func userInteraction(isEnabled: Bool) {
+        
+        op1.isUserInteractionEnabled = isEnabled
+        op2.isUserInteractionEnabled = isEnabled
+        op3.isUserInteractionEnabled = isEnabled
+        op4.isUserInteractionEnabled = isEnabled
+    }
 }

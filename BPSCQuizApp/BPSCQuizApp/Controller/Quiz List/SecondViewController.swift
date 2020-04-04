@@ -9,32 +9,39 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    let baseURL = "http://103.192.157.61:85/api/"
+    var objectpayload = [AllQuiz]()
+    
+    @IBOutlet weak var quizListTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-      //  navigationController?.isNavigationBarHidden = true
-    //    self.tabBarController?.tabBar.isHidden = false
-    
-      
+        getDictionaryData()
+        
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = false
+    
+    override func viewDidAppear(_ animated: Bool) {
+        quizListTableView.reloadData()
+        
     }
-
-
+    
+    
 }
 
 extension SecondViewController : UITableViewDelegate,UITableViewDataSource{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
-    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return objectpayload.count
     }
     
     
@@ -46,19 +53,23 @@ extension SecondViewController : UITableViewDelegate,UITableViewDataSource{
         cell.layer.cornerRadius = 8
         cell.qView.layer.cornerRadius = 8
         
-       return cell
+        //cell.questionArchiveLabel.text = objectpayload[indexPath.row].examName ?? ""
+        cell.quizTitle.text = objectpayload[indexPath.row].title
+        cell.layer.borderWidth = 0
+        return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ThirdViewController")
-        navigationController?.pushViewController(vc!, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ThirdViewController") as! ThirdViewController
+        navigationController?.pushViewController(vc, animated: true)
+        vc.quizId = objectpayload[indexPath.row].id ?? 0
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-
+        
         return 8
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -70,3 +81,34 @@ extension SecondViewController : UITableViewDelegate,UITableViewDataSource{
     
 }
 
+extension SecondViewController{
+    
+    func getDictionaryData() {
+        let apiUrl = "\(baseURL)Quiz/GetAllQuizListByUserId"
+        print(apiUrl)
+        fetchDatawithNSDictionary(apitype: "GET", urlString: apiUrl, baseURL: "") { (jsonDict) in
+            
+            do {
+                
+                let responseModel = try JSONDecoder().decode(QuizBase.self, from: jsonDict)
+                
+                let temp:Int = responseModel.payload?.count ?? 0
+                
+                if(temp>0) {
+                    
+                    for response in responseModel.payload!{
+                        
+                        self.objectpayload.append(response)
+                    }
+                }
+                
+                self.quizListTableView.reloadData()
+                
+            }
+            catch{
+                
+            }
+            
+        }
+    }
+}

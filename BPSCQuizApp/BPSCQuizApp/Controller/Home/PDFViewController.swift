@@ -12,6 +12,7 @@ import PDFKit
 class PDFViewController: UIViewController {
 
     @IBOutlet weak var pdfView: PDFView!
+    var urlString = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +20,19 @@ class PDFViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         navigationController?.isNavigationBarHidden = false
-        
-        if let path = Bundle.main.path(forResource: "Swift", ofType: "pdf") {
-            let url = URL(fileURLWithPath: path)
-            if let pdfDocument = PDFDocument(url: url) {
+      print(urlString)
+            let url = URL(string: urlString)!
+        print(url)
+        if let pdfDocument = PDFDocument(url: url) {
                 pdfView.autoScales = true
                 pdfView.displayMode = .singlePageContinuous
                 pdfView.displayDirection = .vertical
                 pdfView.document = pdfDocument
             }
-        }
+       // }
     }
+    
+}
+extension PDFViewController{
     
 }
