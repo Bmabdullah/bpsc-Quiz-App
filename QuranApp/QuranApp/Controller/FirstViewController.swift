@@ -62,13 +62,13 @@ class FirstViewController: UIViewController , UITableViewDelegate,UITableViewDat
                             let responseModel = try JSONDecoder().decode(BaseModel.self, from: data)
                             
                            
-                            self.lat = responseModel.settings?.longitude ?? ""
-                            self.lon = responseModel.settings?.latitude ?? ""
-                            print("###########ß", self.lat,self.lon)
+                            self.lon = responseModel.settings?.longitude ?? ""
+                            self.lat = responseModel.settings?.latitude ?? ""
+                            
                             LatLon.shared.lat = self.lat
                             LatLon.shared.lon = self.lon
                             
-                            self.getPrayerTimeData()
+                            self.getPrayerTimeData(lat: self.lat, lon: self.lon)
                             
                             DispatchQueue.main.async {
                                 
@@ -189,7 +189,7 @@ extension FirstViewController{
                    
                }
 
-    func getPrayerTimeData(){
+    func getPrayerTimeData(lat : String , lon : String){
         
         //latlong using core location
         
@@ -201,7 +201,10 @@ extension FirstViewController{
        //using phone location
         
 
-       guard let url = URL(string: "http://api.aladhan.com/v1/timings?latitude=\(LatLon.shared.lat)&longitude=\(LatLon.shared.lon)") else { return }
+       guard let url = URL(string: "http://api.aladhan.com/v1/timings?latitude=\(lat)&longitude=\(lon)") else { return }
+        
+        
+        print(url)
         
 //using defualt location
         
@@ -217,7 +220,7 @@ extension FirstViewController{
                                do {
                                    let responseModel = try JSONDecoder().decode(PrayerTimeBase.self, from: data)
                                 
-                      //          print("responce Model for user : " , responseModel)
+                                print("responce Model for user : " , responseModel.data?.timings)
                                 
                             
                                    DispatchQueue.main.async {
@@ -256,7 +259,7 @@ extension FirstViewController{
                                     let isha = responseModel.data?.timings?.isha
                                     let midnight = responseModel.data?.timings?.midnight
                                     
-                                    print(date)
+                                    print("the date is ", date)
                                     
                                     LatLon.shared.PrayerTime = [(fajr ?? ""),(dhuhr ?? ""),(asr ?? ""),(maghrib ?? ""),(isha ?? ""),(midnight ?? "")]
                                    
