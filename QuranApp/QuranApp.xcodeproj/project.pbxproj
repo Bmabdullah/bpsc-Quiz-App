@@ -1,0 +1,515 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		850239282441770400517952 /* Timings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239242441770400517952 /* Timings.swift */; };
+		850239292441770400517952 /* Hijri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239252441770400517952 /* Hijri.swift */; };
+		8502392A2441770400517952 /* PrayerTimeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239262441770400517952 /* PrayerTimeBase.swift */; };
+		8502392B2441770400517952 /* PrayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239272441770400517952 /* PrayerData.swift */; };
+		851B5B5C243CE02D00F397DA /* PrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5B243CE02D00F397DA /* PrayerTableViewCell.swift */; };
+		851B5B5E243CED0E00F397DA /* QuranViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5D243CED0E00F397DA /* QuranViewController.swift */; };
+		851B5B60243CEFA100F397DA /* quranTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5F243CEFA100F397DA /* quranTableViewCell.swift */; };
+		85B7900F243DB50B00010C8D /* Ayahs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7900E243DB50B00010C8D /* Ayahs.swift */; };
+		85B79013243DB56800010C8D /* SuraBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79011243DB56800010C8D /* SuraBase.swift */; };
+		85B79014243DB56800010C8D /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79012243DB56800010C8D /* Data.swift */; };
+		85B7902D243DF1C000010C8D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79020243DF1C000010C8D /* Month.swift */; };
+		85B79030243DF1C000010C8D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79023243DF1C000010C8D /* Date.swift */; };
+		85B79031243DF1C000010C8D /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79024243DF1C000010C8D /* Weekday.swift */; };
+		85B79032243DF1C000010C8D /* Offset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79025243DF1C000010C8D /* Offset.swift */; };
+		85B79033243DF1C000010C8D /* Gregorian.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79026243DF1C000010C8D /* Gregorian.swift */; };
+		85B79034243DF1C000010C8D /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79027243DF1C000010C8D /* Params.swift */; };
+		85B79035243DF1C000010C8D /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79028243DF1C000010C8D /* Meta.swift */; };
+		85B79037243DF1C000010C8D /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7902A243DF1C000010C8D /* Method.swift */; };
+		85B79038243DF1C000010C8D /* Designation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7902B243DF1C000010C8D /* Designation.swift */; };
+		85B79040243F902200010C8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7903E243F902200010C8D /* Settings.swift */; };
+		85B79041243F902200010C8D /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B7903F243F902200010C8D /* BaseModel.swift */; };
+		85B79043243F929000010C8D /* LatLon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B79042243F929000010C8D /* LatLon.swift */; };
+		85C7E9362439E8BB00F03DB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E9352439E8BB00F03DB7 /* AppDelegate.swift */; };
+		85C7E9382439E8BB00F03DB7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E9372439E8BB00F03DB7 /* SceneDelegate.swift */; };
+		85C7E93A2439E8BB00F03DB7 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E9392439E8BB00F03DB7 /* FirstViewController.swift */; };
+		85C7E93C2439E8BB00F03DB7 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E93B2439E8BB00F03DB7 /* SecondViewController.swift */; };
+		85C7E93F2439E8BB00F03DB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7E93D2439E8BB00F03DB7 /* Main.storyboard */; };
+		85C7E9412439E8BC00F03DB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C7E9402439E8BC00F03DB7 /* Assets.xcassets */; };
+		85C7E9442439E8BC00F03DB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C7E9422439E8BC00F03DB7 /* LaunchScreen.storyboard */; };
+		85C7E9512439EC7E00F03DB7 /* SuraTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E9502439EC7E00F03DB7 /* SuraTableViewCell.swift */; };
+		85C7E9532439EDEF00F03DB7 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C7E9522439EDEF00F03DB7 /* ThirdViewController.swift */; };
+		85CBA27D243D8FFD00B27339 /* SuraListBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBA27B243D8FFD00B27339 /* SuraListBase.swift */; };
+		85CBA27E243D8FFD00B27339 /* SuraListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CBA27C243D8FFD00B27339 /* SuraListData.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		850239242441770400517952 /* Timings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timings.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/Timings.swift; sourceTree = "<group>"; };
+		850239252441770400517952 /* Hijri.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hijri.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/Hijri.swift; sourceTree = "<group>"; };
+		850239262441770400517952 /* PrayerTimeBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrayerTimeBase.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/PrayerTimeBase.swift; sourceTree = "<group>"; };
+		850239272441770400517952 /* PrayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrayerData.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/PrayerData.swift; sourceTree = "<group>"; };
+		851B5B5B243CE02D00F397DA /* PrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTableViewCell.swift; sourceTree = "<group>"; };
+		851B5B5D243CED0E00F397DA /* QuranViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuranViewController.swift; sourceTree = "<group>"; };
+		851B5B5F243CEFA100F397DA /* quranTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranTableViewCell.swift; sourceTree = "<group>"; };
+		85B7900E243DB50B00010C8D /* Ayahs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ayahs.swift; sourceTree = "<group>"; };
+		85B79011243DB56800010C8D /* SuraBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuraBase.swift; sourceTree = "<group>"; };
+		85B79012243DB56800010C8D /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		85B79020243DF1C000010C8D /* Month.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
+		85B79023243DF1C000010C8D /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		85B79024243DF1C000010C8D /* Weekday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		85B79025243DF1C000010C8D /* Offset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offset.swift; sourceTree = "<group>"; };
+		85B79026243DF1C000010C8D /* Gregorian.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gregorian.swift; sourceTree = "<group>"; };
+		85B79027243DF1C000010C8D /* Params.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
+		85B79028243DF1C000010C8D /* Meta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
+		85B7902A243DF1C000010C8D /* Method.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Method.swift; sourceTree = "<group>"; };
+		85B7902B243DF1C000010C8D /* Designation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Designation.swift; sourceTree = "<group>"; };
+		85B7903E243F902200010C8D /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		85B7903F243F902200010C8D /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		85B79042243F929000010C8D /* LatLon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatLon.swift; sourceTree = "<group>"; };
+		85C7E9322439E8BB00F03DB7 /* QuranApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuranApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C7E9352439E8BB00F03DB7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		85C7E9372439E8BB00F03DB7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		85C7E9392439E8BB00F03DB7 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		85C7E93B2439E8BB00F03DB7 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		85C7E93E2439E8BB00F03DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		85C7E9402439E8BC00F03DB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		85C7E9432439E8BC00F03DB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85C7E9452439E8BC00F03DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85C7E9502439EC7E00F03DB7 /* SuraTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuraTableViewCell.swift; sourceTree = "<group>"; };
+		85C7E9522439EDEF00F03DB7 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		85CBA27B243D8FFD00B27339 /* SuraListBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuraListBase.swift; sourceTree = "<group>"; };
+		85CBA27C243D8FFD00B27339 /* SuraListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuraListData.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85C7E92F2439E8BB00F03DB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85B79010243DB54900010C8D /* Sura Details Model */ = {
+			isa = PBXGroup;
+			children = (
+				85B79023243DF1C000010C8D /* Date.swift */,
+				85B7902B243DF1C000010C8D /* Designation.swift */,
+				85B79011243DB56800010C8D /* SuraBase.swift */,
+				85B79012243DB56800010C8D /* Data.swift */,
+			);
+			path = "Sura Details Model";
+			sourceTree = "<group>";
+		};
+		85B79015243DED4A00010C8D /* PrayerTime */ = {
+			isa = PBXGroup;
+			children = (
+				85B7900E243DB50B00010C8D /* Ayahs.swift */,
+				85B79026243DF1C000010C8D /* Gregorian.swift */,
+				85B79028243DF1C000010C8D /* Meta.swift */,
+				85B7902A243DF1C000010C8D /* Method.swift */,
+				85B79020243DF1C000010C8D /* Month.swift */,
+				85B79025243DF1C000010C8D /* Offset.swift */,
+				850239252441770400517952 /* Hijri.swift */,
+				850239272441770400517952 /* PrayerData.swift */,
+				850239262441770400517952 /* PrayerTimeBase.swift */,
+				850239242441770400517952 /* Timings.swift */,
+				85B79027243DF1C000010C8D /* Params.swift */,
+				85B79024243DF1C000010C8D /* Weekday.swift */,
+			);
+			path = PrayerTime;
+			sourceTree = "<group>";
+		};
+		85C7E9292439E8BB00F03DB7 = {
+			isa = PBXGroup;
+			children = (
+				85C7E9342439E8BB00F03DB7 /* QuranApp */,
+				85C7E9332439E8BB00F03DB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85C7E9332439E8BB00F03DB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E9322439E8BB00F03DB7 /* QuranApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85C7E9342439E8BB00F03DB7 /* QuranApp */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E94B2439EBEC00F03DB7 /* Model */,
+				85C7E94C2439EBF600F03DB7 /* View */,
+				85C7E94D2439EC0000F03DB7 /* Controller */,
+				85C7E94E2439EC2500F03DB7 /* Suppourt File */,
+				85C7E9402439E8BC00F03DB7 /* Assets.xcassets */,
+				85B79042243F929000010C8D /* LatLon.swift */,
+				85C7E9452439E8BC00F03DB7 /* Info.plist */,
+			);
+			path = QuranApp;
+			sourceTree = "<group>";
+		};
+		85C7E94B2439EBEC00F03DB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85B7903F243F902200010C8D /* BaseModel.swift */,
+				85B7903E243F902200010C8D /* Settings.swift */,
+				85CBA27A243D8FD800B27339 /* Sura List */,
+				85B79010243DB54900010C8D /* Sura Details Model */,
+				85B79015243DED4A00010C8D /* PrayerTime */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85C7E94C2439EBF600F03DB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E93D2439E8BB00F03DB7 /* Main.storyboard */,
+				85C7E9422439E8BC00F03DB7 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		85C7E94D2439EC0000F03DB7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E94F2439EC5700F03DB7 /* Table Cell */,
+				85C7E9392439E8BB00F03DB7 /* FirstViewController.swift */,
+				851B5B5D243CED0E00F397DA /* QuranViewController.swift */,
+				85C7E93B2439E8BB00F03DB7 /* SecondViewController.swift */,
+				85C7E9522439EDEF00F03DB7 /* ThirdViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		85C7E94E2439EC2500F03DB7 /* Suppourt File */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E9372439E8BB00F03DB7 /* SceneDelegate.swift */,
+				85C7E9352439E8BB00F03DB7 /* AppDelegate.swift */,
+			);
+			path = "Suppourt File";
+			sourceTree = "<group>";
+		};
+		85C7E94F2439EC5700F03DB7 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				85C7E9502439EC7E00F03DB7 /* SuraTableViewCell.swift */,
+				851B5B5F243CEFA100F397DA /* quranTableViewCell.swift */,
+				851B5B5B243CE02D00F397DA /* PrayerTableViewCell.swift */,
+			);
+			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		85CBA27A243D8FD800B27339 /* Sura List */ = {
+			isa = PBXGroup;
+			children = (
+				85CBA27B243D8FFD00B27339 /* SuraListBase.swift */,
+				85CBA27C243D8FFD00B27339 /* SuraListData.swift */,
+			);
+			path = "Sura List";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85C7E9312439E8BB00F03DB7 /* QuranApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85C7E9482439E8BC00F03DB7 /* Build configuration list for PBXNativeTarget "QuranApp" */;
+			buildPhases = (
+				85C7E92E2439E8BB00F03DB7 /* Sources */,
+				85C7E92F2439E8BB00F03DB7 /* Frameworks */,
+				85C7E9302439E8BB00F03DB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuranApp;
+			productName = QuranApp;
+			productReference = 85C7E9322439E8BB00F03DB7 /* QuranApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85C7E92A2439E8BB00F03DB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "AL Mustakim";
+				TargetAttributes = {
+					85C7E9312439E8BB00F03DB7 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 85C7E92D2439E8BB00F03DB7 /* Build configuration list for PBXProject "QuranApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 85C7E9292439E8BB00F03DB7;
+			productRefGroup = 85C7E9332439E8BB00F03DB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85C7E9312439E8BB00F03DB7 /* QuranApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85C7E9302439E8BB00F03DB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85C7E9442439E8BC00F03DB7 /* LaunchScreen.storyboard in Resources */,
+				85C7E9412439E8BC00F03DB7 /* Assets.xcassets in Resources */,
+				85C7E93F2439E8BB00F03DB7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85C7E92E2439E8BB00F03DB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85B79037243DF1C000010C8D /* Method.swift in Sources */,
+				85B79038243DF1C000010C8D /* Designation.swift in Sources */,
+				85B79033243DF1C000010C8D /* Gregorian.swift in Sources */,
+				85B79043243F929000010C8D /* LatLon.swift in Sources */,
+				850239292441770400517952 /* Hijri.swift in Sources */,
+				85C7E93C2439E8BB00F03DB7 /* SecondViewController.swift in Sources */,
+				85C7E93A2439E8BB00F03DB7 /* FirstViewController.swift in Sources */,
+				851B5B5E243CED0E00F397DA /* QuranViewController.swift in Sources */,
+				851B5B60243CEFA100F397DA /* quranTableViewCell.swift in Sources */,
+				85B7900F243DB50B00010C8D /* Ayahs.swift in Sources */,
+				85C7E9362439E8BB00F03DB7 /* AppDelegate.swift in Sources */,
+				85B79032243DF1C000010C8D /* Offset.swift in Sources */,
+				85B79031243DF1C000010C8D /* Weekday.swift in Sources */,
+				8502392A2441770400517952 /* PrayerTimeBase.swift in Sources */,
+				851B5B5C243CE02D00F397DA /* PrayerTableViewCell.swift in Sources */,
+				850239282441770400517952 /* Timings.swift in Sources */,
+				85B79030243DF1C000010C8D /* Date.swift in Sources */,
+				85B79014243DB56800010C8D /* Data.swift in Sources */,
+				85B79041243F902200010C8D /* BaseModel.swift in Sources */,
+				85B79034243DF1C000010C8D /* Params.swift in Sources */,
+				85B79040243F902200010C8D /* Settings.swift in Sources */,
+				85B7902D243DF1C000010C8D /* Month.swift in Sources */,
+				8502392B2441770400517952 /* PrayerData.swift in Sources */,
+				85B79013243DB56800010C8D /* SuraBase.swift in Sources */,
+				85CBA27E243D8FFD00B27339 /* SuraListData.swift in Sources */,
+				85C7E9382439E8BB00F03DB7 /* SceneDelegate.swift in Sources */,
+				85B79035243DF1C000010C8D /* Meta.swift in Sources */,
+				85C7E9532439EDEF00F03DB7 /* ThirdViewController.swift in Sources */,
+				85C7E9512439EC7E00F03DB7 /* SuraTableViewCell.swift in Sources */,
+				85CBA27D243D8FFD00B27339 /* SuraListBase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		85C7E93D2439E8BB00F03DB7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85C7E93E2439E8BB00F03DB7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		85C7E9422439E8BC00F03DB7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85C7E9432439E8BC00F03DB7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85C7E9462439E8BC00F03DB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		85C7E9472439E8BC00F03DB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85C7E9492439E8BC00F03DB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = QuranApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bma.QuranApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		85C7E94A2439E8BC00F03DB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = QuranApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bma.QuranApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85C7E92D2439E8BB00F03DB7 /* Build configuration list for PBXProject "QuranApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85C7E9462439E8BC00F03DB7 /* Debug */,
+				85C7E9472439E8BC00F03DB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85C7E9482439E8BC00F03DB7 /* Build configuration list for PBXNativeTarget "QuranApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85C7E9492439E8BC00F03DB7 /* Debug */,
+				85C7E94A2439E8BC00F03DB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85C7E92A2439E8BB00F03DB7 /* Project object */;
+}
