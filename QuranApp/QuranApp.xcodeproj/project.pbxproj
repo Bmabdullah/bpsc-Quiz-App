@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		850239282441770400517952 /* Timings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239242441770400517952 /* Timings.swift */; };
-		850239292441770400517952 /* Hijri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239252441770400517952 /* Hijri.swift */; };
-		8502392A2441770400517952 /* PrayerTimeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239262441770400517952 /* PrayerTimeBase.swift */; };
-		8502392B2441770400517952 /* PrayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239272441770400517952 /* PrayerData.swift */; };
+		8502392D2442C0F700517952 /* Hijri.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502392C2442C0F700517952 /* Hijri.swift */; };
+		8502392F2442C14800517952 /* PrayerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8502392E2442C14800517952 /* PrayerData.swift */; };
+		850239312442C17200517952 /* PrayerTimeBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239302442C17200517952 /* PrayerTimeBase.swift */; };
+		850239332442C19600517952 /* Timings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850239322442C19600517952 /* Timings.swift */; };
 		851B5B5C243CE02D00F397DA /* PrayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5B243CE02D00F397DA /* PrayerTableViewCell.swift */; };
 		851B5B5E243CED0E00F397DA /* QuranViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5D243CED0E00F397DA /* QuranViewController.swift */; };
 		851B5B60243CEFA100F397DA /* quranTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B5B5F243CEFA100F397DA /* quranTableViewCell.swift */; };
@@ -43,10 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		850239242441770400517952 /* Timings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timings.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/Timings.swift; sourceTree = "<group>"; };
-		850239252441770400517952 /* Hijri.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hijri.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/Hijri.swift; sourceTree = "<group>"; };
-		850239262441770400517952 /* PrayerTimeBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrayerTimeBase.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/PrayerTimeBase.swift; sourceTree = "<group>"; };
-		850239272441770400517952 /* PrayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrayerData.swift; path = ../../../../../../Downloads/codegen_5e8db9d41b9ff/PrayerData.swift; sourceTree = "<group>"; };
+		8502392C2442C0F700517952 /* Hijri.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hijri.swift; sourceTree = "<group>"; };
+		8502392E2442C14800517952 /* PrayerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerData.swift; sourceTree = "<group>"; };
+		850239302442C17200517952 /* PrayerTimeBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrayerTimeBase.swift; sourceTree = "<group>"; };
+		850239322442C19600517952 /* Timings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timings.swift; sourceTree = "<group>"; };
 		851B5B5B243CE02D00F397DA /* PrayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTableViewCell.swift; sourceTree = "<group>"; };
 		851B5B5D243CED0E00F397DA /* QuranViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuranViewController.swift; sourceTree = "<group>"; };
 		851B5B5F243CEFA100F397DA /* quranTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quranTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,10 +111,10 @@
 				85B7902A243DF1C000010C8D /* Method.swift */,
 				85B79020243DF1C000010C8D /* Month.swift */,
 				85B79025243DF1C000010C8D /* Offset.swift */,
-				850239252441770400517952 /* Hijri.swift */,
-				850239272441770400517952 /* PrayerData.swift */,
-				850239262441770400517952 /* PrayerTimeBase.swift */,
-				850239242441770400517952 /* Timings.swift */,
+				8502392C2442C0F700517952 /* Hijri.swift */,
+				8502392E2442C14800517952 /* PrayerData.swift */,
+				850239302442C17200517952 /* PrayerTimeBase.swift */,
+				850239322442C19600517952 /* Timings.swift */,
 				85B79027243DF1C000010C8D /* Params.swift */,
 				85B79024243DF1C000010C8D /* Weekday.swift */,
 			);
@@ -287,25 +287,25 @@
 				85B79038243DF1C000010C8D /* Designation.swift in Sources */,
 				85B79033243DF1C000010C8D /* Gregorian.swift in Sources */,
 				85B79043243F929000010C8D /* LatLon.swift in Sources */,
-				850239292441770400517952 /* Hijri.swift in Sources */,
 				85C7E93C2439E8BB00F03DB7 /* SecondViewController.swift in Sources */,
 				85C7E93A2439E8BB00F03DB7 /* FirstViewController.swift in Sources */,
 				851B5B5E243CED0E00F397DA /* QuranViewController.swift in Sources */,
+				8502392D2442C0F700517952 /* Hijri.swift in Sources */,
+				8502392F2442C14800517952 /* PrayerData.swift in Sources */,
 				851B5B60243CEFA100F397DA /* quranTableViewCell.swift in Sources */,
 				85B7900F243DB50B00010C8D /* Ayahs.swift in Sources */,
 				85C7E9362439E8BB00F03DB7 /* AppDelegate.swift in Sources */,
 				85B79032243DF1C000010C8D /* Offset.swift in Sources */,
 				85B79031243DF1C000010C8D /* Weekday.swift in Sources */,
-				8502392A2441770400517952 /* PrayerTimeBase.swift in Sources */,
 				851B5B5C243CE02D00F397DA /* PrayerTableViewCell.swift in Sources */,
-				850239282441770400517952 /* Timings.swift in Sources */,
+				850239332442C19600517952 /* Timings.swift in Sources */,
 				85B79030243DF1C000010C8D /* Date.swift in Sources */,
 				85B79014243DB56800010C8D /* Data.swift in Sources */,
 				85B79041243F902200010C8D /* BaseModel.swift in Sources */,
 				85B79034243DF1C000010C8D /* Params.swift in Sources */,
 				85B79040243F902200010C8D /* Settings.swift in Sources */,
+				850239312442C17200517952 /* PrayerTimeBase.swift in Sources */,
 				85B7902D243DF1C000010C8D /* Month.swift in Sources */,
-				8502392B2441770400517952 /* PrayerData.swift in Sources */,
 				85B79013243DB56800010C8D /* SuraBase.swift in Sources */,
 				85CBA27E243D8FFD00B27339 /* SuraListData.swift in Sources */,
 				85C7E9382439E8BB00F03DB7 /* SceneDelegate.swift in Sources */,

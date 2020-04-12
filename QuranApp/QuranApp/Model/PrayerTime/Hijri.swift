@@ -5,10 +5,10 @@ struct Hijri : Codable {
 	let date : String?
 	let format : String?
 	let day : String?
-	//let weekday : Weekday?
-	//let month : Month?
+	let weekday : Weekday?
+	let month : Month?
 	let year : String?
-	//let designation : Designation?
+	let designation : Designation?
 	let holidays : [String]?
 
 	enum CodingKeys: String, CodingKey {
@@ -28,10 +28,10 @@ struct Hijri : Codable {
 		date = try values.decodeIfPresent(String.self, forKey: .date)
 		format = try values.decodeIfPresent(String.self, forKey: .format)
 		day = try values.decodeIfPresent(String.self, forKey: .day)
-		//weekday = try values.decodeIfPresent(Weekday.self, forKey: .weekday)
-		//month = try values.decodeIfPresent(Month.self, forKey: .month)
+		weekday = try values.decodeIfPresent(Weekday.self, forKey: .weekday)
+		month = try values.decodeIfPresent(Month.self, forKey: .month)
 		year = try values.decodeIfPresent(String.self, forKey: .year)
-		//designation = try values.decodeIfPresent(Designation.self, forKey: .designation)
+		designation = try values.decodeIfPresent(Designation.self, forKey: .designation)
 		holidays = try values.decodeIfPresent([String].self, forKey: .holidays)
 	}
 
